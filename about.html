@@ -5,10 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About - SkyView Weather</title>
   <style>
+
+    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    /* Mobile logos hidden by default; we'll show compact emoji buttons on small screens */
+    .mobile-logos {
+      display: none;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .mobile-logos a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.05);
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: transform 0.15s ease, background 0.15s ease;
+      font-size: 20px;
+    }
+
+    .mobile-logos a:hover {
+      transform: translateY(-4px) scale(1.05);
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* Show emoji buttons and hide full nav on mobile */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .mobile-logos {
+        display: flex;
+        margin-left: auto; /* push mobile icons to the right */
+      }
+
+      /* Keep header layout tidy when nav hidden */
+      header {
+        justify-content: flex-start;
+      }
     }
 
     body {
@@ -58,8 +103,8 @@
     /* Header */
     header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      gap: 24px; /* space between logo and nav */
       margin-bottom: 60px;
       animation: fadeInDown 1s ease;
     }
@@ -77,32 +122,32 @@
       gap: 10px;
     }
 
+    nav {
+      margin-left: auto; /* push nav to the right */
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    /* Desktop nav: show full text labels */
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 30px;
       font-size: 16px;
-      transition: all 0.3s;
-      position: relative;
+      padding: 8px 12px;
+      transition: transform 0.15s ease, background 0.15s ease;
+      display: inline-block;
+      border-radius: 8px;
     }
 
     nav a:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.06);
     }
 
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: white;
-      transition: width 0.3s;
-    }
-
-    nav a:hover::after {
-      width: 100%;
+    nav a:focus {
+      outline: 2px solid rgba(255,255,255,0.18);
+      outline-offset: 2px;
     }
 
     /* About Section */
@@ -417,40 +462,31 @@
         font-size: 42px;
       }
 
-     /* Modify existing @media (max-width: 768px) */
+      .creator-card {
+        padding: 30px 20px; 
+      }
 
-.creator-card {
-  padding: 30px 20px; /* Currently 40px 30px */
-}
+      .profile-image {
+        width: 120px; 
+        height: 120px;
+      }
 
-.profile-image {
-  width: 120px; /* Reduce from 180px */
-  height: 120px;
-}
+      .creator-name {
+        font-size: 28px; 
+      }
 
-.creator-name {
-  font-size: 28px; /* Currently 32px */
-}
+      .social-links {
+        flex-wrap: wrap; 
+        justify-content: center;
+      }
 
-.social-links {
-  flex-wrap: wrap; /* Already present ✓ */
-  justify-content: center;
-}
+      .project-info {
+        padding: 25px; 
+      }
 
-.project-info {
-  padding: 25px; /* Currently 30px */
-}
-
-.tech-stack {
-  grid-template-columns: repeat(2, 1fr); /* Add this */
-}
-
-/* Add smaller breakpoint */
-@media (max-width: 480px) {
-  .tech-stack {
-    grid-template-columns: 1fr;
-  }
-}
+      .tech-stack {
+        grid-template-columns: repeat(2, 1fr); 
+      }
 
       .creator-name {
         font-size: 32px;
@@ -464,8 +500,12 @@
         font-size: 28px;
       }
 
+      /* FIX: Hide navigation and center logo */
+      header {
+        justify-content: center; /* Center the remaining element (logo) */
+      }
       nav {
-        display: none;
+        display: none; /* Hide the navigation links */
       }
 
       .detail-row {
@@ -476,30 +516,39 @@
         grid-template-columns: 1fr;
       }
     }
+    
+    @media (max-width: 480px) {
+      .tech-stack {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Animated Particles -->
   <div class="particles" id="particles"></div>
 
   <div class="container">
-    <!-- Header -->
-    <header>
-    <a href="index.html" class="logo">☀️ SkyView</a>
-    <nav id="mainNav">
-      <a href="index.html">Home</a>
-      <a href="index.html#features">Features</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <button class="menu-toggle" id="menuToggle">☰</button>
-  </header>
+      <header>
+      <a href="index.html" class="logo">☀️ SkyView</a>
+      <nav aria-label="Main navigation">
+        <a href="index.html" title="Home" aria-label="Home">Home</a>
+        <a href="index.html#features" title="Features" aria-label="Features">Features</a>
+        <a href="contact.html" title="Contact" aria-label="Contact">Contact</a>
+      </nav>
 
-    <!-- About Section -->
+     <div class="mobile-logos" aria-hidden="true">
+    <a href="index.html" title="Home" aria-label="Home">🏠</a>
+    <a href="index.html#features" title="Features" aria-label="Features">✨</a>
+    <a href="contact.html" title="Contact" aria-label="Contact">✉️</a>
+  </div>
+      
+    </header>
+
+
     <div class="about-section">
       <h1>About SkyView</h1>
       <p>Your trusted companion for real-time weather updates. Built with passion to help you stay informed and prepared for any weather condition.</p>
 
-      <!-- Project Info (Moved Up) -->
       <div class="project-info">
         <h2>About the Project</h2>
         <p>SkyView is a modern weather application that provides real-time weather information for any location worldwide. Built with a focus on user experience and visual appeal, it offers dynamic weather-based backgrounds and effects.</p>
@@ -529,7 +578,6 @@
         </div>
       </div>
 
-      <!-- Creator Card (Moved Down) -->
       <div class="creator-card">
         <h2 style="font-size: 32px; margin-bottom: 30px; text-align: center;">Created By</h2>
 
@@ -593,13 +641,14 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <footer>
       <p>&copy; 2025 SkyView Weather. Made with ❤️ by Kartik Pandey</p>
     </footer>
   </div>
 
   <script>
+
+    
     // Create animated particles
     const particlesContainer = document.getElementById('particles');
     for (let i = 0; i < 30; i++) {
@@ -629,33 +678,7 @@
     document.querySelectorAll('.tech-item').forEach(item => {
       observer.observe(item);
     });
+
   </script>
-  <script>
-    // ... existing script code ...
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuToggle = document.getElementById('menuToggle');
-        const mainNav = document.getElementById('mainNav');
-
-        if (menuToggle && mainNav) {
-            menuToggle.addEventListener('click', () => {
-                mainNav.classList.toggle('active');
-            });
-
-            // Optional: Close menu when a link is clicked
-            mainNav.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    // Only remove the class if the link changes the page
-                    // This is helpful for single-page scrolling or if the menu should automatically close
-                    setTimeout(() => {
-                        mainNav.classList.remove('active');
-                    }, 50); 
-                });
-            });
-        }
-    });
-
-    // ... rest of your existing script code ...
-</script>
 </body>
 </html>

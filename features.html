@@ -251,31 +251,9 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-/* Modify existing @media (max-width: 768px) */
-
-.features-grid {
-  grid-template-columns: 1fr; /* Already present ✓ */
-  gap: 20px;
-}
-
-.feature-card {
-  padding: 30px 25px; /* Reduce from 40px 30px */
-}
-
-.cta-section {
-  padding: 40px 25px; /* Reduce from 60px 40px */
-}
-
-/* Add smaller breakpoint */
-@media (max-width: 480px) {
-  .page-title h1 {
-    font-size: 32px; /* Currently 38px */
-  }
-  
-  .cta-section h2 {
-    font-size: 28px; /* Currently 32px */
-  }
-}
+      .page-title h1 {
+        font-size: 38px;
+      }
 
       .features-grid {
         grid-template-columns: 1fr;
@@ -294,16 +272,15 @@
 <body>
   <div class="container">
     <!-- Header -->
-  <header>
-    <div class="logo">☀️ SkyView</div>
-    <nav id="mainNav">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <button class="menu-toggle" id="menuToggle">☰</button>
-  </header>
+    <header>
+      <div class="logo">☀️ SkyView</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
 
     <!-- Page Title -->
     <div class="page-title">
@@ -452,32 +429,5 @@
       <p>&copy; 2025 SkyView Weather. Made with ❤️ for weather enthusiasts</p>
     </footer>
   </div>
-  <script>
-    // ... existing script code ...
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuToggle = document.getElementById('menuToggle');
-        const mainNav = document.getElementById('mainNav');
-
-        if (menuToggle && mainNav) {
-            menuToggle.addEventListener('click', () => {
-                mainNav.classList.toggle('active');
-            });
-
-            // Optional: Close menu when a link is clicked
-            mainNav.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    // Only remove the class if the link changes the page
-                    // This is helpful for single-page scrolling or if the menu should automatically close
-                    setTimeout(() => {
-                        mainNav.classList.remove('active');
-                    }, 50); 
-                });
-            });
-        }
-    });
-
-    // ... rest of your existing script code ...
-</script>
 </body>
 </html>

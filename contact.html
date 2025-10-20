@@ -467,42 +467,6 @@
       .contact-info h1 {
         font-size: 36px;
       }
-      /* Modify existing @media (max-width: 968px) */
-
-.contact-section {
-  grid-template-columns: 1fr; /* Already present ✓ */
-  gap: 30px;
-}
-
-.form-container {
-  padding: 25px; /* Currently 30px */
-}
-
-input, select, textarea {
-  font-size: 14px; /* Reduce from 16px for better mobile experience */
-  padding: 12px 18px;
-}
-
-.contact-item {
-  padding: 15px;
-}
-
-/* Add smaller breakpoint */
-@media (max-width: 480px) {
-  .contact-info h1 {
-    font-size: 32px; /* Currently 36px */
-  }
-  
-  .form-container h2 {
-    font-size: 24px; /* Currently 28px */
-  }
-  
-  .success-card,
-  .error-card {
-    padding: 30px; /* Reduce from 50px */
-    width: 95%; /* Ensure it fits screen */
-  }
-}
 
       .form-container h2 {
         font-size: 28px;
@@ -514,15 +478,14 @@ input, select, textarea {
   <div class="particles" id="particles"></div>
 
   <div class="container">
-  <header>
-    <a href="index.html" class="logo">☀️ SkyView</a>
-    <nav id="mainNav">
-      <a href="index.html">Home</a>
-      <a href="index.html#features">Features</a>
-      <a href="about.html">About</a>
-    </nav>
-    <button class="menu-toggle" id="menuToggle">☰</button>
-  </header>
+    <header>
+      <a href="index.html" class="logo">☀️ SkyView</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#features">Features</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
 
     <div class="contact-section">
       <div class="contact-info">
@@ -716,32 +679,5 @@ input, select, textarea {
       observer.observe(item);
     });
   </script>
-  <script>
-    // ... existing script code ...
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuToggle = document.getElementById('menuToggle');
-        const mainNav = document.getElementById('mainNav');
-
-        if (menuToggle && mainNav) {
-            menuToggle.addEventListener('click', () => {
-                mainNav.classList.toggle('active');
-            });
-
-            // Optional: Close menu when a link is clicked
-            mainNav.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    // Only remove the class if the link changes the page
-                    // This is helpful for single-page scrolling or if the menu should automatically close
-                    setTimeout(() => {
-                        mainNav.classList.remove('active');
-                    }, 50); 
-                });
-            });
-        }
-    });
-
-    // ... rest of your existing script code ...
-</script>
 </body>
 </html>

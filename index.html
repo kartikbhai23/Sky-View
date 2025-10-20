@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SkyView - Weather at Your Fingertips</title>
   <style>
+    /* Responsive logo sizing (fallback for no JS) */
+    .logo span {
+      transition: font-size 0.2s;
+    }
     * {
       margin: 0;
       padding: 0;
@@ -1008,6 +1012,22 @@
 </head>
 <body>
   <!-- Weather Effects -->
+  <script>
+    function adjustLogoSize() {
+      var logo = document.querySelector('.logo');
+      if (!logo) return;
+      var spans = logo.querySelectorAll('span');
+      var w = window.innerWidth;
+      var size = 28;
+      if (w < 500) size = 18;
+      else if (w < 768) size = 22;
+      spans.forEach(function(s) {
+        s.style.fontSize = size + 'px';
+      });
+    }
+    window.addEventListener('resize', adjustLogoSize);
+    window.addEventListener('DOMContentLoaded', adjustLogoSize);
+  </script>
   <div id="clear-sky-container">
     <div id="celestial-body"></div>
     <div class="cloud cloud1"></div>

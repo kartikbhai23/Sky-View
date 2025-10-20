@@ -13,9 +13,10 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      /* --- THEME CHANGE: Light Blue/Cyan Gradient --- */
+      background: linear-gradient(135deg, #2daae4 0%, #91d5f4 100%);
       min-height: 100vh;
-      color: white;
+      color: rgb(255, 255, 255);
       overflow-x: hidden;
     }
 
@@ -152,7 +153,8 @@
       padding: 20px;
       border-radius: 15px;
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      /* --- STROKE MODIFIED --- */
+      border: 1px solid rgba(255, 255, 255, 0.4);
       transition: all 0.3s;
     }
 
@@ -184,7 +186,8 @@
       backdrop-filter: blur(20px);
       border-radius: 30px;
       padding: 50px;
-      border: 2px solid rgba(255, 255, 255, 0.2);
+      /* --- STROKE MODIFIED --- */
+      border: 2px solid rgba(29, 140, 238, 0.656);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
 
@@ -214,7 +217,8 @@
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(10px);
       color: white;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      /* --- STROKE MODIFIED --- */
+      border: 1px solid rgba(17, 171, 176, 0.903);
       transition: all 0.3s;
       font-family: inherit;
     }
@@ -229,7 +233,7 @@
     textarea:focus {
       outline: none;
       background: rgba(255, 255, 255, 0.25);
-      border-color: rgba(255, 255, 255, 0.5);
+      border-color: rgba(255, 255, 255, 0.8);
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
@@ -244,7 +248,8 @@
     }
 
     select option {
-      background: #667eea;
+      /* Matching new theme background for option dropdowns */
+      background: #4facfe; 
       color: white;
     }
 
@@ -264,7 +269,8 @@
       width: auto;
       margin: 0;
       cursor: pointer;
-      accent-color: #667eea;
+      /* Update accent color to match new theme base */
+      accent-color: #4facfe;
     }
 
     .checkbox-group label {
@@ -280,6 +286,7 @@
       font-weight: 600;
       border: none;
       border-radius: 50px;
+      /* Keep the original action-oriented button color for contrast */
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       cursor: pointer;
@@ -296,7 +303,7 @@
       transform: translateY(-1px);
     }
 
-    /* Success Modal */
+    /* Success Modal (Updated to match new theme base) */
     .success-modal {
       position: fixed;
       top: 0;
@@ -468,11 +475,9 @@
   </style>
 </head>
 <body>
-  <!-- Animated Particles -->
   <div class="particles" id="particles"></div>
 
   <div class="container">
-    <!-- Header -->
     <header>
       <a href="index.html" class="logo">☀️ SkyView</a>
       <nav>
@@ -482,9 +487,7 @@
       </nav>
     </header>
 
-    <!-- Contact Section -->
     <div class="contact-section">
-      <!-- Contact Info -->
       <div class="contact-info">
         <h1>Get in Touch</h1>
         <p>Have questions about our weather service? Want to provide feedback or report an issue? We'd love to hear from you!</p>
@@ -531,7 +534,6 @@
         </div>
       </div>
 
-      <!-- Contact Form -->
       <div class="form-container">
         <h2>Send us a Message</h2>
         <form id="contact-form">
@@ -593,13 +595,11 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <footer>
       <p>&copy; 2025 SkyView Weather. Made with ❤️ by Kartik Pandey</p>
     </footer>
   </div>
 
-  <!-- Success Modal -->
   <div class="success-modal" id="success-modal">
     <div class="success-card">
       <div class="success-icon">✅</div>

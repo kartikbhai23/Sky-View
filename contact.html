@@ -58,11 +58,11 @@
 
     /* Header */
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 60px;
-      animation: fadeInDown 1s ease;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 60px;
+  animation: fadeInDown 1s ease;
     }
 
     .logo {
@@ -76,6 +76,58 @@
       display: flex;
       align-items: center;
       gap: 10px;
+    }
+
+    nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 12px;
+      transition: transform 0.15s ease, background 0.15s ease;
+      display: inline-block;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.06);
+    }
+
+    nav a:focus {
+      outline: 2px solid rgba(255,255,255,0.18);
+      outline-offset: 2px;
+    }
+
+    .mobile-logos {
+      display: none;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .mobile-logos a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.05);
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: transform 0.15s ease, background 0.15s ease;
+      font-size: 20px;
+    }
+
+    .mobile-logos a:hover {
+      transform: translateY(-4px) scale(1.05);
+      background: rgba(255,255,255,0.08);
     }
 
     nav a {
@@ -444,22 +496,26 @@
     }
 
     /* Responsive */
-    @media (max-width: 968px) {
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+      .mobile-logos {
+        display: flex;
+        margin-left: auto;
+      }
+      header {
+        justify-content: flex-start;
+      }
       .contact-section {
         grid-template-columns: 1fr;
         gap: 40px;
       }
-
       .contact-info h1 {
         font-size: 42px;
       }
-
       .form-container {
         padding: 30px;
-      }
-
-      nav {
-        display: none;
       }
     }
 
@@ -480,11 +536,16 @@
   <div class="container">
     <header>
       <a href="index.html" class="logo">☀️ SkyView</a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="index.html#features">Features</a>
-        <a href="about.html">About</a>
+      <nav aria-label="Main navigation">
+        <a href="index.html" title="Home" aria-label="Home">Home</a>
+        <a href="features.html" title="Features" aria-label="Features">Features</a>
+        <a href="about.html" title="About" aria-label="About">Contact</a>
       </nav>
+      <div class="mobile-logos" aria-hidden="true">
+  <a href="index.html" title="Home" aria-label="Home">🏠</a>
+  <a href="features.html" title="Features" aria-label="Features">✨</a>
+  <a href="about.html" title="About" aria-label="About">ℹ️</a>
+      </div>
     </header>
 
     <div class="contact-section">

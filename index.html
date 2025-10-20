@@ -358,9 +358,11 @@
     }
 
     .mobile-logos {
-      display: none;
-      gap: 14px;
-      align-items: center;
+  display: none;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 100vw;
     }
 
     .mobile-logos a {
@@ -964,6 +966,9 @@
       .mobile-logos {
         display: flex;
         margin-left: auto;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        max-width: 100vw;
       }
       header {
         justify-content: flex-start;
@@ -1018,15 +1023,13 @@
   <div class="container">
     <!-- Header -->
     <header>
-      <a href="index.html" class="logo">☀️ SkyView</a>
+  <a href="index.html" class="logo" style="gap:8px;"><span style="font-size:28px;">☀️</span><span style="font-size:28px;font-weight:bold;background:linear-gradient(90deg,#fff,#a8dadc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SkyView</span></a>
       <nav aria-label="Main navigation">
-        <a href="index.html" title="Home" aria-label="Home">Home</a>
         <a href="features.html" title="Features" aria-label="Features">Features</a>
         <a href="contact.html" title="Contact" aria-label="Contact">Contact</a>
         <a href="about.html" title="About" aria-label="About">About</a>
       </nav>
       <div class="mobile-logos" aria-hidden="true">
-  <a href="index.html" title="Home" aria-label="Home">🏠</a>
   <a href="features.html" title="Features" aria-label="Features">✨</a>
   <a href="contact.html" title="Contact" aria-label="Contact">📞</a>
   <a href="about.html" title="About" aria-label="About">ℹ️</a>

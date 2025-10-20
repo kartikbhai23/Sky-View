@@ -485,13 +485,14 @@
   <div class="container">
     <!-- Header -->
     <header>
-      <a href="index.html" class="logo">☀️ SkyView</a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="index.html#features">Features</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </header>
+    <a href="index.html" class="logo">☀️ SkyView</a>
+    <nav id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="index.html#features">Features</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+  </header>
 
     <!-- About Section -->
     <div class="about-section">
@@ -629,5 +630,32 @@
       observer.observe(item);
     });
   </script>
+  <script>
+    // ... existing script code ...
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+            });
+
+            // Optional: Close menu when a link is clicked
+            mainNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    // Only remove the class if the link changes the page
+                    // This is helpful for single-page scrolling or if the menu should automatically close
+                    setTimeout(() => {
+                        mainNav.classList.remove('active');
+                    }, 50); 
+                });
+            });
+        }
+    });
+
+    // ... rest of your existing script code ...
+</script>
 </body>
 </html>

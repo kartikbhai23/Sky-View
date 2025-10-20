@@ -294,15 +294,16 @@
 <body>
   <div class="container">
     <!-- Header -->
-    <header>
-      <div class="logo">☀️ SkyView</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="features.html">Features</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </header>
+  <header>
+    <div class="logo">☀️ SkyView</div>
+    <nav id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+  </header>
 
     <!-- Page Title -->
     <div class="page-title">
@@ -451,5 +452,32 @@
       <p>&copy; 2025 SkyView Weather. Made with ❤️ for weather enthusiasts</p>
     </footer>
   </div>
+  <script>
+    // ... existing script code ...
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+            });
+
+            // Optional: Close menu when a link is clicked
+            mainNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    // Only remove the class if the link changes the page
+                    // This is helpful for single-page scrolling or if the menu should automatically close
+                    setTimeout(() => {
+                        mainNav.classList.remove('active');
+                    }, 50); 
+                });
+            });
+        }
+    });
+
+    // ... rest of your existing script code ...
+</script>
 </body>
 </html>

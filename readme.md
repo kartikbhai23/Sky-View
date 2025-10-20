@@ -47,7 +47,7 @@ A modern, interactive weather application that provides real-time weather inform
 
 ## 🚀 Live Demo
 
-[View Live Demo](#) *(Add your GitHub Pages or deployment link here)*
+[View Live Demo](#) *(https://sky-view-rizo.onrender.com)*
 
 ## 📸 Screenshots
 
@@ -59,6 +59,8 @@ A modern, interactive weather application that provides real-time weather inform
 
 ### Detailed Weather View
 ![Detailed View](screenshots/detailed.png)
+(screenshots/detailed1.png)
+(screenshots/detailed2s.png)
 
 ## 🛠️ Technologies Used
 

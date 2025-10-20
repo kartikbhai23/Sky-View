@@ -467,6 +467,42 @@
       .contact-info h1 {
         font-size: 36px;
       }
+      /* Modify existing @media (max-width: 968px) */
+
+.contact-section {
+  grid-template-columns: 1fr; /* Already present ✓ */
+  gap: 30px;
+}
+
+.form-container {
+  padding: 25px; /* Currently 30px */
+}
+
+input, select, textarea {
+  font-size: 14px; /* Reduce from 16px for better mobile experience */
+  padding: 12px 18px;
+}
+
+.contact-item {
+  padding: 15px;
+}
+
+/* Add smaller breakpoint */
+@media (max-width: 480px) {
+  .contact-info h1 {
+    font-size: 32px; /* Currently 36px */
+  }
+  
+  .form-container h2 {
+    font-size: 24px; /* Currently 28px */
+  }
+  
+  .success-card,
+  .error-card {
+    padding: 30px; /* Reduce from 50px */
+    width: 95%; /* Ensure it fits screen */
+  }
+}
 
       .form-container h2 {
         font-size: 28px;

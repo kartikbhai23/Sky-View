@@ -251,9 +251,31 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .page-title h1 {
-        font-size: 38px;
-      }
+/* Modify existing @media (max-width: 768px) */
+
+.features-grid {
+  grid-template-columns: 1fr; /* Already present ✓ */
+  gap: 20px;
+}
+
+.feature-card {
+  padding: 30px 25px; /* Reduce from 40px 30px */
+}
+
+.cta-section {
+  padding: 40px 25px; /* Reduce from 60px 40px */
+}
+
+/* Add smaller breakpoint */
+@media (max-width: 480px) {
+  .page-title h1 {
+    font-size: 32px; /* Currently 38px */
+  }
+  
+  .cta-section h2 {
+    font-size: 28px; /* Currently 32px */
+  }
+}
 
       .features-grid {
         grid-template-columns: 1fr;

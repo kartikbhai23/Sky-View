@@ -417,9 +417,40 @@
         font-size: 42px;
       }
 
-      .creator-card {
-        padding: 40px 30px;
-      }
+     /* Modify existing @media (max-width: 768px) */
+
+.creator-card {
+  padding: 30px 20px; /* Currently 40px 30px */
+}
+
+.profile-image {
+  width: 120px; /* Reduce from 180px */
+  height: 120px;
+}
+
+.creator-name {
+  font-size: 28px; /* Currently 32px */
+}
+
+.social-links {
+  flex-wrap: wrap; /* Already present ✓ */
+  justify-content: center;
+}
+
+.project-info {
+  padding: 25px; /* Currently 30px */
+}
+
+.tech-stack {
+  grid-template-columns: repeat(2, 1fr); /* Add this */
+}
+
+/* Add smaller breakpoint */
+@media (max-width: 480px) {
+  .tech-stack {
+    grid-template-columns: 1fr;
+  }
+}
 
       .creator-name {
         font-size: 32px;

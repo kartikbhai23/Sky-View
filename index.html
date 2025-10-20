@@ -903,9 +903,52 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 42px;
-      }
+/* Add/modify these in the existing @media (max-width: 768px) section */
+
+.hero h1 {
+  font-size: 36px; /* Currently 42px - make smaller */
+}
+
+.hero .subtitle {
+  font-size: 18px; /* Currently 18px - keep same */
+}
+
+.search-container {
+  flex-direction: column; /* Already present ✓ */
+  gap: 12px;
+}
+
+.search-input {
+  width: 100%; /* Already present ✓ */
+  font-size: 16px; /* Reduce from 19px */
+  padding: 18px 25px;
+}
+
+.search-btn {
+  width: 100%; /* Add this */
+  padding: 18px;
+}
+
+.mini-features {
+  grid-template-columns: repeat(2, 1fr); /* Change from 3 to 2 columns */
+  gap: 15px;
+}
+
+.quick-stats {
+  flex-direction: column; /* Add this */
+  gap: 30px;
+}
+
+/* Add new smaller breakpoint */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+  
+  .mini-features {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+  }
+}
 
       .hero p {
         font-size: 18px;

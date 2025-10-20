@@ -635,6 +635,62 @@
     }
 
     @media (max-width: 768px) {
+
+      /* Add/modify the existing @media (max-width: 768px) section */
+
+.header h1 {
+  font-size: 32px; /* Currently 48px */
+}
+
+.main-weather {
+  padding: 25px; /* Currently 40px */
+}
+
+.location-info h2 {
+  font-size: 32px; /* Currently 42px */
+}
+
+.current-weather {
+  grid-template-columns: 1fr; /* Already present ✓ */
+  gap: 25px;
+}
+
+.weather-stats {
+  grid-template-columns: repeat(2, 1fr); /* Already present ✓ */
+  gap: 12px;
+}
+
+.additional-info,
+.today-forecast,
+.week-forecast {
+  padding: 25px; /* Currently 40px */
+}
+
+.hourly-grid {
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Already present ✓ */
+}
+
+.day-card {
+  grid-template-columns: 1fr; /* Already present ✓ */
+  padding: 20px;
+  gap: 12px;
+}
+
+/* Add new smaller breakpoint */
+@media (max-width: 480px) {
+  .weather-stats {
+    grid-template-columns: 1fr; /* Single column */
+  }
+  
+  .stat-box .value {
+    font-size: 24px; /* Reduce from 32px */
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr; /* Single column */
+  }
+}
+
       .current-weather {
         grid-template-columns: 1fr;
       }

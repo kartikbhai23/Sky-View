@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features - SkyView Weather</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: white;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #fff, #a8dadc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 16px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    nav a:hover {
+      transform: translateY(-2px);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: white;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Page Title */
+    .page-title {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .page-title h1 {
+      font-size: 56px;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, #ffffff, #e0f7fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-title p {
+      font-size: 20px;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.4s;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .feature-card:nth-child(1) { animation-delay: 0.1s; }
+    .feature-card:nth-child(2) { animation-delay: 0.2s; }
+    .feature-card:nth-child(3) { animation-delay: 0.3s; }
+    .feature-card:nth-child(4) { animation-delay: 0.4s; }
+    .feature-card:nth-child(5) { animation-delay: 0.5s; }
+    .feature-card:nth-child(6) { animation-delay: 0.6s; }
+    .feature-card:nth-child(7) { animation-delay: 0.7s; }
+    .feature-card:nth-child(8) { animation-delay: 0.8s; }
+    .feature-card:nth-child(9) { animation-delay: 0.9s; }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .feature-icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    .feature-card p {
+      font-size: 16px;
+      opacity: 0.9;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .feature-details {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .feature-details ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-details li {
+      padding: 8px 0;
+      padding-left: 25px;
+      position: relative;
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    .feature-details li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #4ade80;
+      font-weight: bold;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 60px 40px;
+      margin: 80px 0 40px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      animation: fadeInUp 1s ease 1s backwards;
+    }
+
+    .cta-section h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 18px 45px;
+      font-size: 18px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
+      transition: all 0.3s;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(102, 126, 234, 0.6);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 60px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      opacity: 0.8;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .page-title h1 {
+        font-size: 38px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .cta-section h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="logo">☀️ SkyView</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <h1>🚀 Amazing Features</h1>
+      <p>Discover everything SkyView Weather has to offer. From real-time updates to detailed forecasts, we've got you covered.</p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">🌡️</span>
+        <h3>Real-Time Weather Data</h3>
+        <p>Access accurate temperature, humidity, wind speed, and atmospheric conditions updated in real-time from trusted weather sources.</p>
+        <div class="feature-details">
+          <ul>
+            <li>Live temperature readings</li>
+            <li>Feels-like temperature</li>
+            <li>Current humidity levels</li>
+            <li>Wind speed and direction</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">🌍</span>
+        <h3>Global Coverage</h3>
+        <p>Search weather for any city worldwide with comprehensive location data, coordinates, and detailed regional information.</p>
+        <div class="feature-details">
+          <ul>
+            <li>Worldwide city search</li>
+            <li>Geographic coordinates</li>
+            <li>Country information</li>
+            <li>Timezone support</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">⚡</span>
+        <h3>Instant Popup View</h3>
+        <p>Get quick weather snapshots in a beautiful popup interface without leaving the homepage for a seamless experience.</p>
+        <div class="feature-details">
+          <ul>
+            <li>Quick popup interface</li>
+            <li>Essential weather info</li>
+            <li>No page redirects</li>
+            <li>Fast load times</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">📊</span>
+        <h3>Detailed Analysis</h3>
+        <p>Dive deeper with comprehensive weather reports including sunrise, sunset times, visibility, atmospheric pressure, and more.</p>
+        <div class="feature-details">
+          <ul>
+            <li>Sunrise & sunset times</li>
+            <li>Visibility distance</li>
+            <li>Atmospheric pressure</li>
+            <li>Wind gust information</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">📅</span>
+        <h3>3-Hour Forecasts</h3>
+        <p>Plan your day effectively with detailed hourly predictions showing temperature changes, humidity levels, and cloud coverage.</p>
+        <div class="feature-details">
+          <ul>
+            <li>8 time slots per day</li>
+            <li>Temperature predictions</li>
+            <li>Humidity forecasts</li>
+            <li>Cloud coverage data</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">🗓️</span>
+        <h3>7-Day Weather Outlook</h3>
+        <p>Stay prepared with weekly forecasts showing daily high and low temperatures and weather conditions for the week ahead.</p>
+        <div class="feature-details">
+          <ul>
+            <li>Full week predictions</li>
+            <li>High/low temperatures</li>
+            <li>Daily weather conditions</li>
+            <li>Long-term planning</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">🎨</span>
+        <h3>Dynamic Weather Backgrounds</h3>
+        <p>Experience immersive weather effects with beautifully animated rain, snow, lightning, and celestial bodies that match conditions.</p>
+        <div class="feature-details">
+          <ul>
+            <li>Animated rain effects</li>
+            <li>Falling snow visualization</li>
+            <li>Lightning flashes</li>
+            <li>Moving clouds</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">🌓</span>
+        <h3>Smart Day/Night Themes</h3>
+        <p>Automatically adapts to local time with stunning sunrise, daytime, afternoon, and night visuals for the best viewing experience.</p>
+        <div class="feature-details">
+          <ul>
+            <li>Automatic theme switching</li>
+            <li>Sun during daytime</li>
+            <li>Moon and stars at night</li>
+            <li>Time-based colors</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">📱</span>
+        <h3>Fully Mobile Responsive</h3>
+        <p>Seamless experience across all devices - desktop computers, tablets, and mobile phones with optimized layouts.</p>
+        <div class="feature-details">
+          <ul>
+            <li>Desktop optimized</li>
+            <li>Tablet friendly</li>
+            <li>Mobile compatible</li>
+            <li>Touch gestures</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+      <h2>Ready to Check the Weather?</h2>
+      <p>Start exploring real-time weather data for any city in the world</p>
+      <a href="index.html" class="cta-btn">🌤️ Try SkyView Now</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 SkyView Weather. Made with ❤️ for weather enthusiasts</p>
+    </footer>
+  </div>
+</body>
+</html>
